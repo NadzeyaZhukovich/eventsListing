@@ -1,7 +1,14 @@
 <template>
-    <div>
-        <h1>Events Listening</h1>
+  <div>
+    <h1>Events Listening</h1>
+    <EventCart />
 
-        <router-link :to="{name: 'event-show', params: {id: '1'}}">Show Event #1</router-link>
-    </div>
+  </div>
 </template>
+
+<script>
+import EventCart from '@/components/EventCart';
+export default {
+  components: { EventCart }
+};
+</script>
