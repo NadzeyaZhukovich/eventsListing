@@ -7,23 +7,13 @@
 
 <script>
 import EventCart from '@/components/EventCart';
-import EventService from "../services/EventService";
+import { mapState } from 'vuex';
 
 export default {
   components: { EventCart },
-  data() {
-    return {
-      events: []
-    };
-  },
   created() {
-    EventService.getEvents()
-      .then(responce => {
-        this.events = responce.data
-      })
-      .catch( error => {
-        console.log('There was an error:' + error.response)
-      })
-  }
+    this.$store.dispatch('fetchEvent');
+  },
+  computed: mapState(['events'])
 };
 </script>
